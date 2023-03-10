@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		#calculator {
+			border: 1px solid black;
+			padding: 10px;
+			display: inline-block;
+		}
+		button {
+			margin: 5px;
+			padding: 10px;
+			font-size: 20px;
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="calculator">
+		<input type="text" id="result" readonly>
+		<br>
+		<button onclick="addToResult(1)">1</button>
+		<button onclick="addToResult(2)">2</button>
+		<button onclick="addToResult(3)">3</button>
+		<button onclick="addToResult('+')">+</button>
+		<br>
+		<button onclick="addToResult(4)">4</button>
+		<button onclick="addToResult(5)">5</button>
+		<button onclick="addToResult(6)">6</button>
+		<button onclick="addToResult('-')">-</button>
+		<br>
+		<button onclick="addToResult(7)">7</button>
+		<button onclick="addToResult(8)">8</button>
+		<button onclick="addToResult(9)">9</button>
+		<button onclick="addToResult('*')">*</button>
+		<br>
+		<button onclick="addToResult(0)">0</button>
+		<button onclick="addToResult('.')">.</button>
+		<button onclick="calculate()">=</button>
+		<button onclick="addToResult('/')">/</button>
+		<br>
+		<button onclick="clearResult()">Clear</button>
+	</div>
+
+	<script>
+		let result = "";
+
+		function addToResult(value) {
+			result += value;
+			document.getElementById("result").value = result;
+		}
+
+		function calculate() {
+			let calculation = eval(result);
+			document.getElementById("result").value = calculation;
+			result = calculation;
+		}
+
+		function clearResult() {
+			result = "";
+			document.getElementById("result").value = result;
+		}
+	</script>
+
+</body>
+</html>
